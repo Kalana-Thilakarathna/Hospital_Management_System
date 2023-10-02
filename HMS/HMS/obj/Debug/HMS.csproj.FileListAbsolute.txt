@@ -1,0 +1,14 @@
+F:\SE\HMS\HMS\bin\Debug\HMS.exe.config
+F:\SE\HMS\HMS\bin\Debug\HMS.exe
+F:\SE\HMS\HMS\bin\Debug\HMS.pdb
+F:\SE\HMS\HMS\obj\Debug\HMS.csproj.AssemblyReference.cache
+F:\SE\HMS\HMS\obj\Debug\HMS.Properties.Resources.resources
+F:\SE\HMS\HMS\obj\Debug\HMS.csproj.GenerateResource.cache
+F:\SE\HMS\HMS\obj\Debug\HMS.csproj.CoreCompileInputs.cache
+F:\SE\HMS\HMS\obj\Debug\HMS.exe
+F:\SE\HMS\HMS\obj\Debug\HMS.pdb
+F:\SE\HMS\HMS\obj\Debug\HMS.Log.resources
+F:\SE\HMS\HMS\obj\Debug\HMS.Admin.resources
+F:\SE\HMS\HMS\obj\Debug\HMS.Doctor.resources
+F:\SE\HMS\HMS\obj\Debug\HMS.Receptionist.resources
+F:\SE\HMS\HMS\obj\Debug\HMS.Gardian.resources
