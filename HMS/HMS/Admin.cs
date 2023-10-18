@@ -301,5 +301,10 @@ namespace HMS
             dataGridView1.Columns["E_type"].Width = 80;
             dataGridView1.Columns["E_password"].Width = 70;
         }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

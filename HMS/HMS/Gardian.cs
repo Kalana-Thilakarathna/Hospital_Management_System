@@ -39,8 +39,6 @@ namespace HMS
 
             Receptionist.instance.TextBox5.Text = GIDs.Rows[0]["G_id"].ToString();
             Receptionist.instance.Label6.Text = $"ID : {GIDs.Rows[0]["G_id"]}  {textBox1.Text}";
-            //Receptionist.instance.textBox5.Text = GIDs.Rows[0]["G_id"].ToString();
-            //Receptionist.instance.lb6.Text = $"ID : {GIDs.Rows[0]["G_id"]}  {textBox1.Text}";
             connection.Close();
             this.Close();
         }

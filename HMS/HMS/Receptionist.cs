@@ -148,17 +148,15 @@ namespace HMS
                         cmd2.ExecuteNonQuery();
                         connection.Close();
                         Display();
-                        textBox6.Clear();
                     }
                     else
                     {
-                        textBox6.Clear();
                         connection.Close();
                     }
                 }
                 catch
                 {
-                    MessageBox.Show($"Patient {textBox6.Text} not found", "Patient Not Found", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show($"Patient {PidInt} not found", "Patient Not Found", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             catch
@@ -213,7 +211,6 @@ namespace HMS
                     button3.Visible = false;
                     search.Visible = false;
                     button1.Visible = false;
-                    textBox6.Visible = false;
                     button5.Visible = false;
                 }
                 catch
@@ -258,7 +255,6 @@ namespace HMS
                     button3.Visible = true;
                     search.Visible = true;
                     button1.Visible = true;
-                    textBox6.Visible = true;
                     button5.Visible = true;
                 }
                 catch
@@ -294,8 +290,12 @@ namespace HMS
             button3.Visible = true;
             search.Visible = true;
             button1.Visible = true;
-            textBox6.Visible = true;
             button5.Visible = true;
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
