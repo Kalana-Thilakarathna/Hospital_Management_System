@@ -15,10 +15,11 @@ namespace HMS
     {
         public static Doctor instance;
         public Label ld1;
-        SqlConnection connection = new SqlConnection("Data Source=DESKTOP-KLVMU8H\\MSSQLSERVER01;Initial Catalog=HMS;Integrated Security=True");
+        SqlConnection connection = new SqlConnection("Data Source=LAPTOP-7U6TD0GQ\\SQLEXPRESS;Initial Catalog=HMS;Integrated Security=True");
         public Doctor()
         {
             InitializeComponent();
+            Display();
             instance = this;
             ld1 = label1;
             label1.Text = Log.instence.name;
@@ -39,42 +40,61 @@ namespace HMS
             try
             {
                 connection.Open();
-                SqlCommand cmd = connection.CreateCommand();
-                cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "select patient.P_id,patient.P_name,patient.P_tele,gardian.G_name,gardian.G_tele from patient inner join gardian on patient.G_id = Gardian.G_id where Patient.P_name = '" + textBox1.Text + "'";
+                string command = $"SELECT * FROM Patient WHERE P_id LIKE '%{search.Text}%' OR P_name LIKE '%{search.Text}%' OR P_gender = '{search.Text}' OR P_age LIKE '%{search.Text}%' OR P_tele LIKE '%{search.Text}%' OR P_address LIKE '%{search.Text}%' OR P_bloodT LIKE '%{search.Text}%' OR Symptoms LIKE '%{search.Text}%';";
+                SqlCommand cmd = new SqlCommand(command, connection);
                 cmd.ExecuteNonQuery();
-                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-                DataTable dt = new DataTable();
-                adapter.Fill(dt);
-                dataGridView1.DataSource = dt;
+                SqlDataAdapter dataAD1 = new SqlDataAdapter(cmd);
+                DataTable dataTab1 = new DataTable();
+                dataAD1.Fill(dataTab1);
+                if (dataTab1.Rows.Count == 0)
+                {
+                    MessageBox.Show("No matching results");
+                    search.Clear();
+                }
+                else
+                {
+                    dataGridView1.DataSource = dataTab1;
+                    search.Clear();
+                    button9.Visible = true;
+                }
+                connection.Close();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.ToString());
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        public void Display()
         {
             connection.Open();
-            SqlCommand cmd = connection.CreateCommand();
-            cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "select patient.P_id,patient.P_name,patient.P_tele,gardian.G_name,gardian.G_tele from patient inner join gardian on patient.G_id = Gardian.G_id";
+            string command = "select * from Patient";
+            SqlCommand cmd = new SqlCommand(command, connection);
             cmd.ExecuteNonQuery();
-            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            adapter.Fill(dt);
-            dataGridView1.DataSource = dt;
-        }
+            SqlDataAdapter dataAD = new SqlDataAdapter(cmd);
+            DataTable dataTab = new DataTable();
+            dataAD.Fill(dataTab);
+            dataGridView1.DataSource = dataTab;
+            connection.Close();
 
-        void display()
-        {
-            
+            dataGridView1.Columns["P_id"].Width = 35;
+            dataGridView1.Columns["P_name"].Width = 90;
+            dataGridView1.Columns["P_gender"].Width = 60;
+            dataGridView1.Columns["P_age"].Width = 50;
+            dataGridView1.Columns["P_tele"].Width = 70;
+            dataGridView1.Columns["G_id"].Width = 35;
+            dataGridView1.Columns["P_bloodT"].Width = 60;
+            dataGridView1.Columns["Symptoms"].Width = 100;
         }
 
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            Display();
         }
     }
 }

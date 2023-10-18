@@ -14,69 +14,52 @@ namespace HMS
     
     public partial class Gardian : Form
     {
-        public static Gardian instance;
-        public string g_id;
-        int check = 1;
-        SqlConnection connection = new SqlConnection("Data Source=DESKTOP-KLVMU8H\\MSSQLSERVER01;Initial Catalog=HMS;Integrated Security=True");
+        //public static Gardian instance;
+        SqlConnection connection = new SqlConnection("Data Source=LAPTOP-7U6TD0GQ\\SQLEXPRESS;Initial Catalog=HMS;Integrated Security=True");
         public Gardian()
         {
             InitializeComponent();
-            instance = this;
-            textBox1.TextChanged += textBox2_TextChanged;
-            
+            Display();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             connection.Open();
-            SqlCommand cmd = connection.CreateCommand();
-            cmd.CommandType = CommandType.Text;
-            
-            if (check == 0)
-            {
-                cmd.CommandText = "insert into gardian (G_id, G_name, G_tele) values ('" + textBox2.Text + "','" + textBox1.Text + "','" + textBox3.Text + "')";
-            }
-            else
-            {
-                cmd.CommandText = "update gardian set G_name = '" + textBox1.Text + "', G_tele = '" + textBox3.Text + "' where g_id = '"+textBox2.Text+"'";
-            }
+            string command = $"insert into Gardian (G_name, G_tele) values ('{textBox1.Text}', '{textBox3.Text}')";
+            SqlCommand cmd = new SqlCommand(command, connection);
             cmd.ExecuteNonQuery();
+
+            string command2 = $"select G_id from Gardian where G_name = '{textBox1.Text}' and G_tele = '{textBox3.Text}'";
+            SqlCommand cmd2 = new SqlCommand(command2, connection);
+            cmd2.ExecuteNonQuery();
+            SqlDataAdapter GIDAdapter = new SqlDataAdapter(cmd2);
+            DataTable GIDs = new DataTable();
+            GIDAdapter.Fill(GIDs);
+
+
+            Receptionist.instance.TextBox5.Text = GIDs.Rows[0]["G_id"].ToString();
+            Receptionist.instance.Label6.Text = $"ID : {GIDs.Rows[0]["G_id"]}  {textBox1.Text}";
+            //Receptionist.instance.textBox5.Text = GIDs.Rows[0]["G_id"].ToString();
+            //Receptionist.instance.lb6.Text = $"ID : {GIDs.Rows[0]["G_id"]}  {textBox1.Text}";
             connection.Close();
-            g_id = textBox2.Text;
-            Receptionist.instance.tb.Text = g_id;
             this.Close();
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-            if (textBox1.Text == null)
-            {
-                textBox2.Clear();
-            }
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-            getId();
-            
-        }
-
-        void getId ()
+        public void Display()
         {
             connection.Open();
-            SqlCommand cmd2 = connection.CreateCommand();
-            cmd2.CommandType = CommandType.Text;
-            cmd2.CommandText = "select*from gardian where g_name = '" + textBox1.Text + "'";
-            cmd2.ExecuteNonQuery();
-            SqlDataAdapter adapter = new SqlDataAdapter(cmd2);
-            DataTable dt = new DataTable();
-            adapter.Fill(dt);
-            dataGridView1.DataSource = dt;
-            if (dt.Rows.Count < 0)
-            {
-                check = 0;
-            }
+            string command = "select * from Gardian";
+            SqlCommand cmd = new SqlCommand(command, connection);
+            cmd.ExecuteNonQuery();
+            SqlDataAdapter dataAD = new SqlDataAdapter(cmd);
+            DataTable dataTab = new DataTable();
+            dataAD.Fill(dataTab);
+            dataGridView1.DataSource = dataTab;
             connection.Close();
+
+            dataGridView1.Columns["G_id"].Width = 35;
+            dataGridView1.Columns["G_name"].Width = 60;
+            dataGridView1.Columns["G_tele"].Width = 70;
         }
     }
 }
