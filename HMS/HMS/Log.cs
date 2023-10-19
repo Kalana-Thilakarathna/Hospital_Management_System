@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using BCrypt.Net;
 using System.Linq.Expressions;
 
 namespace HMS
@@ -42,8 +43,10 @@ namespace HMS
                     ePass = result[0].ToString();
                     eType = result[1].ToString();
                 }
-                
-                if (textBox2.Text == ePass)
+
+                bool passwordIsCorrect = BCrypt.Net.BCrypt.Verify(textBox2.Text, ePass);
+
+                if (passwordIsCorrect)
                 {
                     switch (eType)
                     {

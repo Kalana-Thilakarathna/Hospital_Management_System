@@ -1,18 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-using System.Drawing.Text;
-using System.Threading;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolBar;
-using System.Reflection.Emit;
+using BCrypt.Net;
 
 namespace HMS
 {
@@ -166,8 +157,12 @@ namespace HMS
                         else if (radioButton1.Checked) { eType = "Doctor"; }
                         else { eType = "Admin"; }
 
+                        string password = textBox7.Text;
+                        string salt = BCrypt.Net.BCrypt.GenerateSalt();
+                        string hashedPassword = BCrypt.Net.BCrypt.HashPassword(password, salt);
+
                         connection.Open();
-                        string command = $"insert into [Employee] (E_name, E_gender, E_age,  E_address, E_tele, E_type, E_password) values('{textBox2.Text}', '{gender}', '{ageValue}', '{textBox1.Text}', '{textBox3.Text}', '{eType}', '{textBox7.Text}')";
+                        string command = $"insert into [Employee] (E_name, E_gender, E_age,  E_address, E_tele, E_type, E_password) values('{textBox2.Text}', '{gender}', '{ageValue}', '{textBox1.Text}', '{textBox3.Text}', '{eType}', '{hashedPassword}')";
                         SqlCommand cmd = new SqlCommand(command, connection);
                         cmd.ExecuteNonQuery();
                         connection.Close();
@@ -181,7 +176,7 @@ namespace HMS
                         maleRadio.Checked = true;
                         radioButton2.Checked = true;
                     }
-                    catch
+                    catch (Exception ex)
                     {
                         MessageBox.Show("Some of the values entered for Employee's Detail is not valid.\n Age limit 15 - 100\n lenght of Telephone number should be 10", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         connection.Close();

@@ -27,3 +27,6 @@ F:\5th sem\SE porject\Hospital_Management_System\HMS\HMS\obj\Debug\HMS.csproj.Ge
 F:\5th sem\SE porject\Hospital_Management_System\HMS\HMS\obj\Debug\HMS.csproj.CoreCompileInputs.cache
 F:\5th sem\SE porject\Hospital_Management_System\HMS\HMS\obj\Debug\HMS.exe
 F:\5th sem\SE porject\Hospital_Management_System\HMS\HMS\obj\Debug\HMS.pdb
+F:\5th sem\SE porject\Hospital_Management_System\HMS\HMS\bin\Debug\BCrypt.Net.dll
+F:\5th sem\SE porject\Hospital_Management_System\HMS\HMS\bin\Debug\BCrypt.Net.xml
+F:\5th sem\SE porject\Hospital_Management_System\HMS\HMS\obj\Debug\HMS.csproj.CopyComplete
