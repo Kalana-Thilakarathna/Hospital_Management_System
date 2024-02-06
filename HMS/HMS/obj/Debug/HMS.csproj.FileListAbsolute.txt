@@ -30,3 +30,20 @@ F:\5th sem\SE porject\Hospital_Management_System\HMS\HMS\obj\Debug\HMS.pdb
 F:\5th sem\SE porject\Hospital_Management_System\HMS\HMS\bin\Debug\BCrypt.Net.dll
 F:\5th sem\SE porject\Hospital_Management_System\HMS\HMS\bin\Debug\BCrypt.Net.xml
 F:\5th sem\SE porject\Hospital_Management_System\HMS\HMS\obj\Debug\HMS.csproj.CopyComplete
+C:\Users\kalan\Desktop\HMS\Hospital_Management_System\HMS\HMS\bin\Debug\HMS.exe.config
+C:\Users\kalan\Desktop\HMS\Hospital_Management_System\HMS\HMS\bin\Debug\HMS.exe
+C:\Users\kalan\Desktop\HMS\Hospital_Management_System\HMS\HMS\bin\Debug\HMS.pdb
+C:\Users\kalan\Desktop\HMS\Hospital_Management_System\HMS\HMS\bin\Debug\BCrypt.Net.dll
+C:\Users\kalan\Desktop\HMS\Hospital_Management_System\HMS\HMS\bin\Debug\BCrypt.Net.xml
+C:\Users\kalan\Desktop\HMS\Hospital_Management_System\HMS\HMS\obj\Debug\HMS.csproj.AssemblyReference.cache
+C:\Users\kalan\Desktop\HMS\Hospital_Management_System\HMS\HMS\obj\Debug\HMS.Admin.resources
+C:\Users\kalan\Desktop\HMS\Hospital_Management_System\HMS\HMS\obj\Debug\HMS.Doctor.resources
+C:\Users\kalan\Desktop\HMS\Hospital_Management_System\HMS\HMS\obj\Debug\HMS.Gardian.resources
+C:\Users\kalan\Desktop\HMS\Hospital_Management_System\HMS\HMS\obj\Debug\HMS.Log.resources
+C:\Users\kalan\Desktop\HMS\Hospital_Management_System\HMS\HMS\obj\Debug\HMS.Properties.Resources.resources
+C:\Users\kalan\Desktop\HMS\Hospital_Management_System\HMS\HMS\obj\Debug\HMS.Receptionist.resources
+C:\Users\kalan\Desktop\HMS\Hospital_Management_System\HMS\HMS\obj\Debug\HMS.csproj.GenerateResource.cache
+C:\Users\kalan\Desktop\HMS\Hospital_Management_System\HMS\HMS\obj\Debug\HMS.csproj.CoreCompileInputs.cache
+C:\Users\kalan\Desktop\HMS\Hospital_Management_System\HMS\HMS\obj\Debug\HMS.csproj.CopyComplete
+C:\Users\kalan\Desktop\HMS\Hospital_Management_System\HMS\HMS\obj\Debug\HMS.exe
+C:\Users\kalan\Desktop\HMS\Hospital_Management_System\HMS\HMS\obj\Debug\HMS.pdb

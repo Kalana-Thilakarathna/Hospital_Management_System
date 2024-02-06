@@ -17,7 +17,7 @@ namespace HMS
 {
     public partial class Receptionist : Form
     {
-        SqlConnection connection = new SqlConnection("Data Source=LAPTOP-7U6TD0GQ\\SQLEXPRESS;Initial Catalog=HMS;Integrated Security=True");
+        SqlConnection connection = new SqlConnection("Data Source=DESKTOP-KLVMU8H\\MSSQLSERVER01;Initial Catalog=HMS;Integrated Security=True");
         public static Receptionist instance;
         public Receptionist()
         {

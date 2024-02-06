@@ -12,7 +12,7 @@ namespace HMS
         
         string job;
         int id;
-        SqlConnection connection = new SqlConnection("Data Source=LAPTOP-7U6TD0GQ\\SQLEXPRESS;Initial Catalog=HMS;Integrated Security=True");
+        SqlConnection connection = new SqlConnection("Data Source=DESKTOP-KLVMU8H\\MSSQLSERVER01;Initial Catalog=HMS;Integrated Security=True");
         public Admin()
         {
             InitializeComponent();
@@ -158,11 +158,11 @@ namespace HMS
                         else { eType = "Admin"; }
 
                         string password = textBox7.Text;
-                        string salt = BCrypt.Net.BCrypt.GenerateSalt();
-                        string hashedPassword = BCrypt.Net.BCrypt.HashPassword(password, salt);
+                        //string salt = BCrypt.Net.BCrypt.GenerateSalt();
+                        //string hashedPassword = BCrypt.Net.BCrypt.HashPassword(password, salt);
 
                         connection.Open();
-                        string command = $"insert into [Employee] (E_name, E_gender, E_age,  E_address, E_tele, E_type, E_password) values('{textBox2.Text}', '{gender}', '{ageValue}', '{textBox1.Text}', '{textBox3.Text}', '{eType}', '{hashedPassword}')";
+                        string command = $"insert into [Employee] (E_name, E_gender, E_age,  E_address, E_tele, E_type, E_password) values('{textBox2.Text}', '{gender}', '{ageValue}', '{textBox1.Text}', '{textBox3.Text}', '{eType}', '{password}')";
                         SqlCommand cmd = new SqlCommand(command, connection);
                         cmd.ExecuteNonQuery();
                         connection.Close();
@@ -178,7 +178,8 @@ namespace HMS
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show("Some of the values entered for Employee's Detail is not valid.\n Age limit 15 - 100\n lenght of Telephone number should be 10", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show(ex.ToString());
+                        //MessageBox.Show("Some of the values entered for Employee's Detail is not valid.\n Age limit 15 - 100\n lenght of Telephone number should be 10", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         connection.Close();
                     }
                 }
