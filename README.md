@@ -2,7 +2,7 @@
 
 ## Overview
 
-The Hospital Management System is a web-based application designed to streamline and automate various processes within a hospital, including patient registration, appointment scheduling, billing, and more. This system aims to enhance the efficiency of hospital operations and improve the overall patient experience.
+The Hospital Management System is a .Net application designed to streamline and automate various processes within a hospital, including patient registration, appointment scheduling, billing, and more. This system aims to enhance the efficiency of hospital operations and improve the overall patient experience.
 
 ## Features
 
